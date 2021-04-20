@@ -1,0 +1,271 @@
+/*
+
+OREDER: Base + typography > gen layout + grid > page layout > components
+0-600px:            Phone
+600 - 900px:        Tablet Portrait
+900-1200px:         Tablet Landscape
+[1200px -1800opx]   is where our normal styles apply
+1800px +:           Big Desktop
+
+$breakPoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desk
+1em = 16px
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottomSpin {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem) rotate(360deg); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* Images created by: https://unsplash.com/@pawel_czerwinski */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-image: linear-gradient(to right bottom, #c9ced3, #8d9aa8 90%);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+::selection {
+  background-color: #ac2595;
+  color: #fff; }
+
+body {
+  font-family: 'Spartan', sans-serif;
+  font-size: 1.2rem;
+  color: #777; }
+
+h2 {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 2rem; }
+  @media screen and (max-width: 376px) {
+    h2 {
+      font-size: 2rem; } }
+
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 400;
+  margin: .5rem 0 0; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*above will fix any shakiness in the animation. also will not
+    see back of element if you rotate it 180*/ }
+  .heading-primary--main {
+    display: block;
+    font-size: 4rem;
+    font-weight: 400px;
+    letter-spacing: .5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*above 3 animation props can also be written in one line
+        animation: moveInLeft 1s ease-out
+        
+        additional animation props:
+        animation-delay: 3s;
+        animation-iteration-count: 3;
+        
+        */ }
+    @media only screen and (max-width: 75em) {
+      .heading-primary--main {
+        font-size: 3rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--main {
+        font-size: 2.5rem; } }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400px;
+    letter-spacing: 1.5rem;
+    animation: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    margin-bottom: 3rem; }
+    @media only screen and (max-width: 75em) {
+      .heading-primary--sub {
+        letter-spacing: .5rem;
+        font-size: 1.5rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .heading-primary--sub {
+        font-size: 1rem; } }
+
+.heading-secondary {
+  display: inline-block;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #ec3bd4, #530546);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s; }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(2deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media only screen and (max-width: 75em) {
+    .heading-secondary {
+      font-size: 2.5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .heading-secondary {
+      font-size: 2rem; } }
+
+.heading-tertiary {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.paragraph {
+  font-size: 1.2rem; }
+  .paragraph:not(:last-child) {
+    margin-bottom: 3rem; }
+
+.u-center-text {
+  text-align: center !important; }
+
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-bottom-big {
+      margin-bottom: 4rem !important; } }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
+
+.u-margin-top-big {
+  margin-top: 8rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-big {
+      margin-top: 4rem !important; } }
+
+.u-margin-top-huge {
+  margin-top: 10rem !important; }
+  @media only screen and (max-width: 56.25em) {
+    .u-margin-top-huge {
+      margin-top: 6rem !important; } }
+
+.player-controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem; }
+
+.fas {
+  font-size: 3rem;
+  color: #818181;
+  cursor: pointer;
+  user-select: none;
+  margin: 0 2rem; }
+  .fas:hover {
+    filter: brightness(80%); }
+
+.main-button {
+  font-size: 4rem; }
+
+.img-container {
+  height: 30rem;
+  width: 30rem;
+  max-width: 90%;
+  align-self: center; }
+  .img-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0 0.5rem 3rem 0.5rem rgba(0, 0, 0, 0.5); }
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 4rem 2rem;
+  height: .4rem;
+  width: 90%; }
+
+.progress {
+  background: #242323;
+  border-radius: 5px;
+  height: 100%;
+  /* change this to show progress */
+  width: 0%;
+  transition: width 0.1s linear; }
+
+.duration-wrapper {
+  position: relative;
+  top: -2.5rem;
+  display: flex;
+  justify-content: space-between; }
+
+.player-container {
+  height: 60rem;
+  width: 45rem;
+  background-color: #e7e7e7;
+  border-radius: 20px;
+  box-shadow: 0 1.5rem 3rem 0.5rem rgba(0, 0, 0, 0.3);
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center; }
+
+/* Images created by: https://unsplash.com/@pawel_czerwinski */
